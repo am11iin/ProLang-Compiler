@@ -1,0 +1,31 @@
+BeginProject M1_IV_2526;
+Setup:
+    %% Test de la TAS (Hachage et Types)
+    const Seuil: integer = 100;
+    define x | y : integer;
+    define resultat : float = 0.0;
+    define tabDonnees: [integer; 5];
+
+Run:
+{
+    x <- 10;
+    y <- 20;
+    
+    %% Test de la boucle While (Vérification de l'ordre des labels)
+    loop while (x < 15) {
+        tabDonnees[x - 10] <- x * 2;
+        x <- x + 1;
+    } endloop;
+
+    %% Test du IF/ELSE avec logique combinée
+    if (x > y OR Seuil == 100) then:
+    {
+        resultat <- (x + y) / 2.0;
+    } else {
+        resultat <- 1.0;
+    } endIf;
+
+    output("Valeur finale x: ", x);
+    output("Resultat calcul: ", resultat);
+}
+EndProject;

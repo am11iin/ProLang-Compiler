@@ -1,0 +1,25 @@
+BeginProject M1_IV_2526;
+Setup:
+    %% Erreur sémantique : Variable non déclarée utilisée plus bas
+    define calcul: integer;
+    
+    %% Erreur lexicale : Identificateur invalide (finit par _)
+    define erreur_lex_: float; 
+    
+    %% Erreur sémantique : Constante avec un type incompatible
+    const Pi: integer = 3.14159; 
+
+Run:
+{
+    %% Erreur syntaxique : Manque le point-virgule à la fin
+    calcul <- 10 + 5
+    
+    %% Erreur sémantique : Utilisation d'une variable non déclarée (x)
+    x <- 20;
+    
+    %% Erreur syntaxique : Structure de boucle mal fermée (endLoop au lieu de endloop)
+    loop while (calcul < 20) {
+        calcul <- calcul + 1;
+    } endLoop;
+}
+EndProject;
